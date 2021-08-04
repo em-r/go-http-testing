@@ -15,7 +15,7 @@ func viewIndex(w http.ResponseWriter, r *http.Request) {
 
 func router() http.Handler {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", viewIndex)
+	mux.HandleFunc("/home", viewIndex)
 	return mux
 }
 
