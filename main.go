@@ -6,6 +6,19 @@ import (
 	"net/http"
 )
 
+func viewIndex(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("content-type", "application/json")
+	w.Write([]byte(`{
+		"message": "Hello Gophers!"
+	}`))
+}
+
+func router() http.Handler {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", viewIndex)
+	return mux
+}
+
 func main() {
 	port := 5000
 	log.Printf("Running on http://127.0.0.1:%d\n", port)
